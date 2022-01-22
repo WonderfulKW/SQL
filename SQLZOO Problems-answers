@@ -1,0 +1,15 @@
+-- sqlzoo.net problem
+-- 9. A "good value" album is one where the price per track is less than 50 pence. Find the good value album - show the title, the price and the number of tracks. */
+SELECT album.title, album.price, COUNT(track.song) 
+FROM album JOIN track ON album.asin=track.album
+GROUP BY album.title, album.price
+HAVING (album.price/COUNT(track.song))<0.5;
+
+
+-- 10. Wagner's Ring cycle has an imposing 173 tracks, Bing Crosby clocks up 101 tracks. 
+-- List albums so that the album with the most tracks is first. Show the title and the number of tracks
+-- Where two or more albums have the same number of tracks you should order alphabetically
+SELECT album.title, COUNT(track.song) AS number_tracks
+FROM album JOIN track ON album.asin=track.album
+GROUP BY album.title
+ORDER BY number_tracks DESC, album.title;
