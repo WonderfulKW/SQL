@@ -1,1 +1,1 @@
-# SQL problems problem practice from SQLZoo
+# SQL problem practices from SQLZoo
